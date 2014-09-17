@@ -23,6 +23,24 @@ public class TestPerson {
 		new Person("    ");
 	}
 	
+	@Test(expected=IllegalArgumentException.class)
+	public void testSetNullName() {
+		Person p = new Person("Dan");
+		p.setName(null);
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testSetEmptyName() {
+		Person p = new Person("Dan");
+		p.setName("");
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testSetAllWhiteSpaceName() {
+		Person p = new Person("Dan");
+		p.setName("   ");
+	}
+	
 	@Test()
 	public void testCreatingPersonWithValidName() {
 		new Person("Dan");
